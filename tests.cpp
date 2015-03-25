@@ -23,12 +23,17 @@ void t3() {
 			std::cout << i << std::endl;
 		}
 	}
-	return 0;
+}
+
+void t4() {
+	std::cout << Helper::is_pythagorean_triplet(3, 4, 5) << std::endl;
+	std::cout << Helper::is_pythagorean_triplet(1, 1, 1) << std::endl;
+	std::cout << Helper::is_pythagorean_triplet(5, 12, 13) << std::endl;
 }
 
 int main(int argc, char* argv[]) {
 	
-	t2();
+	t4();
 	
 	return 0;
 }

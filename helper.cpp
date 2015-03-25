@@ -6,6 +6,9 @@ my helper functions
 
 #include <iostream> //debug
 #include <math.h>
+#include <vector>
+#include <sstream>
+#include <string>
 
 class Helper {
 
@@ -63,6 +66,54 @@ class Helper {
 				position--;
 			}
 			return n%10;
+		}
+		
+		/* a^2 + b^2 = c^2 */
+		static bool is_pythagorean_triplet(double a, double b, double c) {
+
+			a = pow(a, 2);
+			b = pow(b, 2);
+			c = pow(c, 2);
+
+			if (a + b - c == 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		
+		/*
+		functions for tokenizing a string into a vector of strings
+		*/
+		static std::vector<std::string> split(const std::string &s, char delim) {
+			std::vector<std::string> elems;
+			split(s, delim, elems);
+			return elems;
+		}
+		
+		/* vector printing with auto 
+		needs c++11 support enabled
+		*/
+		template <typename T>
+		static void print_vec(std::vector<T> vec) {
+			for (auto x : vec)
+				std::cout << x << ' ';
+			std::cout << std::endl;
+		}
+		
+	private:
+	
+		/* called by 
+		static std::vector<std::string> split(const std::string &s, char delim) 
+		*/
+		static  std::vector<std::string> &split(const std::string &s, char delim, std::vector<std::string> &elems) {
+			std::stringstream ss(s);
+			std::string item;
+			while (std::getline(ss, item, delim)) {
+				elems.push_back(item);
+			}
+			return elems;
 		}
 	
 };
